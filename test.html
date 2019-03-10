@@ -7,6 +7,7 @@
 	<h2>Catalog</h2>
 	<form>
 		<table border="1">
+
 			<tr>
 				<td>Name</td>
 				<td>Description</td>
@@ -14,51 +15,74 @@
 				<td></td>
 
 			</tr>
+
 			<tr>
-				<td>Hat</td>
+				<td id="name" value="hat">Hat</td>
 				<td>A hat</td>
-				<td>$19.99</td>
-				<td><button onclick="addToCart(19.99);">Add to Cart</button></td>
+				<td id="price" value="19.99">$19.99</td>
+				<td><button onclick="addToCart();">Add to Cart</button></td>
 			</tr>
 			<tr>
-				<td>Chair</td>
+				<td id="name" value="chair">Chair</td>
 				<td>Wooden chair</td>
-				<td>$49.99</td>
-				<td><button onclick="addToCart(49.99);">Add to Cart</button></td>
+				<td id="price" value="49.99">$49.99</td>
+				<td><button onclick="addToCart();">Add to Cart</button></td>
 			</tr>
 <tr>
-				<td>String</td>
+				<td id="name" value="string">String</td>
 				<td>A long string</td>
-				<td>$19.99</td>
-				<td><button onclick="addToCart(19.99);">Add to Cart</button></td>
+				<td id="price" value="19.99">$19.99</td>
+				<td><button onclick="addToCart();">Add to Cart</button></td>
 			</tr>
 			<tr>
-				<td>Dog</td>
+				<td id="name" value="dog">Dog</td>
 				<td>Fluff</td>
-				<td>$79.99</td>
-				<td><button onclick="addToCart(79.99);">Add to Cart</button></td>
+				<td id="price" value="79.99">$79.99</td>
+				<td><button onclick="addToCart();">Add to Cart</button></td>
 			</tr>
 			<tr>
-				<td>Quark</td>
+				<td id="name" value="quark">Quark</td>
 				<td>mol</td>
-				<td>$0.49</td>
-				<td><button onclick="addToCart(0.49);">Add to Cart</button></td>
+				<td id="price" value="0.49">$0.49</td>
+				<td><button onclick="addToCart();">Add to Cart</button></td>
 			</tr>
 			<tr>
-				<td>Soup</td>
+				<td id="name" value="soup">Soup</td>
 				<td>Where's the soup</td>
-				<td>$1.99</td>
-				<td><button onclick="addToCart(1.99);totalQ(1);">Add to Cart</button></td>
+				<td id="price" value="1.99">$1.99</td>
+				<td><button onclick="addToCart();">Add to Cart</button></td>
 			</tr>
 		</table>
 	</form>
-	<script type="text/javascript">
-		function addToCart(Price) {
-			var total = document.getElementByID("")
-			var newTotal
+	<div >
+		<h3>Catalog</h3>
+		<p id="cLog"></p>
 
+
+	</div>
+	<script type="text/javascript">
+		var name = [];
+		var qty = [];
+		var price = [];
+
+		function addToCart(){
+			name.push(document.getElementById("name")).value;
+			qty.push("1");
+			price.push(document.getElementById("price")).value;
+			display();
 		}
 
-	</script>
+		function display(){
+			tPrice = 0;
+			ctalog = '<ul>';
+			for(i=0; i < name.length; i++){
+				tPrice += price[i] * qty[i];
+				ctalog += "<li>" + name[i] + "</li><li>" + qty[i] + "x</li>";
+			}
+			"<ul><br><h4>Total:</h4>" + tPrice;
+		}
+		document.getElementById("cLog").innerHTML = ctalog;
+
+			</script>
 </body>
 </html>
